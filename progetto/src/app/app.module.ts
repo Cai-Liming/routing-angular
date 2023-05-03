@@ -7,6 +7,7 @@ import { ScimiaComponent } from './scimia/scimia.component';
 import { OrsoComponent } from './orso/orso.component';
 import { SerpenteComponent } from './serpente/serpente.component';
 import { DinosauroComponent } from './dinosauro/dinosauro.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DinosauroComponent } from './dinosauro/dinosauro.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
