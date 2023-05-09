@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrsoComponent } from './orso.component';
+import { ExeggutorComponent } from './exeggutor.component';
 
-describe('OrsoComponent', () => {
-  let component: OrsoComponent;
-  let fixture: ComponentFixture<OrsoComponent>;
+describe('ExeggutorComponent', () => {
+  let component: ExeggutorComponent;
+  let fixture: ComponentFixture<ExeggutorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrsoComponent ]
+      declarations: [ ExeggutorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OrsoComponent);
+    fixture = TestBed.createComponent(ExeggutorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

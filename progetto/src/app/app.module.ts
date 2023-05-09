@@ -3,19 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ScimiaComponent } from './scimia/scimia.component';
-import { OrsoComponent } from './orso/orso.component';
 import { SerpenteComponent } from './serpente/serpente.component';
-import { DinosauroComponent } from './dinosauro/dinosauro.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ExeggutorComponent } from './exeggutor/exeggutor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScimiaComponent,
-    OrsoComponent,
     SerpenteComponent,
-    DinosauroComponent
+    ExeggutorComponent,
+    
   ],
   imports: [
     BrowserModule,
