@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Root } from '../models/pokemon.models';
+import { Pokemon , Tcg_data} from '../models/pokemon.models';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -9,23 +9,25 @@ import { Observable } from 'rxjs';
   styleUrls: ['./exeggutor.component.css']
 })
 export class ExeggutorComponent {
-    data : Root | undefined;
-    loading : boolean | undefined;
-    o :Observable<Root> | undefined;
-    constructor(public http: HttpClient) {}
-    makeRequest(): void {
-      console.log("here");
-      this.loading = true;
-      this.o = this.http.get<Root>('https://jsonplaceholder.typicode.com/posts/1');
-      this.o.subscribe(this.getData);
-    }
-    getData = (d : Root) =>
-    {
-      this.data = (d);
-      this.loading = false;
-    }
+  title = 'exeggutor';
+  //@ts-ignore
+  data : Pokemon = {};
+  loading!: boolean;
+  o = new Observable<Tcg_data>;
+  constructor(public http: HttpClient) {
 
+    console.log("here");
+    this.loading = true;
+    this.o = this.http.get<Tcg_data>('https://api.pokemontcg.io/v2/cards/sm4-118');
+    this.o.subscribe(this.getData);
   }
+
+  getData = (d : Tcg_data) =>
+  {
+    this.data = d.data;
+    this.loading = false;
+  }
+}
 
 
 

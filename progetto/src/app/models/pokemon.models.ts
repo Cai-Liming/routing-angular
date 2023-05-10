@@ -1,8 +1,9 @@
-export interface Root {
-    data: Data[]
-  }
+export interface Tcg_data{
+  data : Pokemon
+}
+
   
-  export interface Data {
+  export interface Pokemon {
     id: string
     name: string
     supertype: string
