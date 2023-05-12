@@ -16,7 +16,7 @@ export class OrsoComponent {
   makeRequest(): void {
     console.log("here");
     this.loading = true;
-    this.o = this.http.get<Root>('https://scryfall.com/card/dtk/183/dragon-scarred-bear');
+    this.o = this.http.get<Root>('https://api.scryfall.com/cards/named?fuzzy=dragon-scarred-bear');
     this.o.subscribe(this.getData);
   }
   getData = (d : Root) =>

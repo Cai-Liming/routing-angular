@@ -5,13 +5,14 @@ import { ExeggutorComponent } from './Pokemon/exeggutor/exeggutor.component';
 import { PikachuComponent } from './Pokemon/pikachu/pikachu.component';
 import { BulbasaurComponent } from './Pokemon/bulbasaur/bulbasaur.component';
 import { GengarComponent } from './Pokemon/gengar/gengar.component';
+import { GenericCarteComponent } from './generic-carte/generic-carte.component';
+import { GenericPokemonComponent} from './generic-pokemon/generic-pokemon.component'
 
 const routes: Routes = [
-  {path : 'serpente', component:SerpenteComponent},
-  {path : 'exeggutor', component:ExeggutorComponent},
-  {path : 'pikachu', component:PikachuComponent},
-  {path : 'bulbasaur', component:BulbasaurComponent},
-  {path : 'gengar', component:GengarComponent}
+  
+  {path:'generic/:id', component:GenericCarteComponent},
+  {path:'generic/:id', component:GenericPokemonComponent},
+
   
 ];
 
