@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Root } from '../Carte-Normali/serpente/serpente.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -11,9 +10,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class GenericCarteComponent {
   chiama!: String | null
-  data: Root | undefined;
+  data = {}
   loading: boolean | undefined;
-  obs_chiama : Observable<Root> | undefined;
+  //@ts-ignore
+  obs_chiama : Observable<> | undefined;
   constructor(private route: ActivatedRoute, public http: HttpClient) {
     this.route.paramMap.subscribe(this.getRouterParam);
   }
@@ -21,11 +21,14 @@ export class GenericCarteComponent {
   {
     this.chiama = params.get('id'); //Ottengo l'id dalla ParamMap
     console.log (this.chiama); 
-    this.obs_chiama = this.http.get<Root>('https://api.scryfall.com/cards/named?fuzzy=' + this.chiama);
+    //@ts-ignore
+    this.obs_chiama = this.http.get('https://api.scryfall.com/cards/named?fuzzy=' + this.chiama);
     this.obs_chiama.subscribe(this.getData)
   }
-  getData = (d : Root) =>
+  //@ts-ignore
+  getData = (d) =>
    {
+    //@ts-ignore
      this.data = (d);
      this.loading = false;
    }
