@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { Pokemon, Tcg_data } from '../models/pokemon.models';
-import { Observable } from 'rxjs';
+import { Pokemon, Tcg_data } from '../Pokemon.models/pokemon.models';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-pikachu',
-  templateUrl: './pikachu.component.html',
-  styleUrls: ['./pikachu.component.css']
+  selector: 'app-bulbasaur',
+  templateUrl: './bulbasaur.component.html',
+  styleUrls: ['./bulbasaur.component.css']
 })
-export class PikachuComponent {
-  title = 'pikachu';
+export class BulbasaurComponent {
+  title = 'bulbasaur';
   //@ts-ignore
   data : Pokemon = {};
   loading !: boolean;
@@ -18,7 +18,7 @@ export class PikachuComponent {
 
     console.log('here')
     this.loading = true;
-    this.o = this.http.get<Tcg_data>('https://api.pokemontcg.io/v2/cards/cel25-7')
+    this.o = this.http.get<Tcg_data>('https://api.pokemontcg.io/v2/cards/det1-1')
     this.o.subscribe(this.getData);
   }
 
@@ -28,3 +28,5 @@ export class PikachuComponent {
     this.loading = false;
   }
 }
+
+

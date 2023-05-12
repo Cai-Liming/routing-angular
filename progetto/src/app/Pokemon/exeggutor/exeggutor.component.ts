@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Pokemon , Tcg_data} from '../models/pokemon.models';
+import { Pokemon , Tcg_data} from '../Pokemon.models/pokemon.models';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
