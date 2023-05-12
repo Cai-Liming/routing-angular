@@ -1,3 +1,7 @@
+export interface CT_data{
+  data : Root
+}
+
 export interface Root {
     object: string
     id: string

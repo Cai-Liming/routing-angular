@@ -24,9 +24,8 @@ export class GenericPokemonComponent {
     this.obs_chiama = this.http.get<Tcg_data>('https://api.pokemontcg.io/v2/cards/' + this.chiama);
     this.obs_chiama.subscribe(this.getData)
   }
-  getData = (d : Pokemon) =>
-   {
-     this.data = (d);
-     this.loading = false;
-   }
-}
+  getData = (d: Tcg_data) => {
+    this.data = d.data!;
+    this.loading = false;
+  }
+}  

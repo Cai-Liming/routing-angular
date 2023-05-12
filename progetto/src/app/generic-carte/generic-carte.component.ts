@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { CT_data } from '../Carte-Normali/serpente/serpente.model';
 
 @Component({
   selector: 'app-generic-carte',
@@ -10,10 +11,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class GenericCarteComponent {
   chiama!: String | null
-  data = {}
+  data: CT_data | undefined;
   loading: boolean | undefined;
-  //@ts-ignore
-  obs_chiama : Observable<> | undefined;
+  obs_chiama : Observable<CT_data> | undefined;
   constructor(private route: ActivatedRoute, public http: HttpClient) {
     this.route.paramMap.subscribe(this.getRouterParam);
   }
@@ -21,15 +21,11 @@ export class GenericCarteComponent {
   {
     this.chiama = params.get('id'); //Ottengo l'id dalla ParamMap
     console.log (this.chiama); 
-    //@ts-ignore
-    this.obs_chiama = this.http.get('https://api.scryfall.com/cards/named?fuzzy=' + this.chiama);
+    this.obs_chiama = this.http.get<CT_data>('https://api.scryfall.com/cards/named?fuzzy=' + this.chiama);
     this.obs_chiama.subscribe(this.getData)
   }
-  //@ts-ignore
-  getData = (d) =>
-   {
-    //@ts-ignore
-     this.data = (d);
-     this.loading = false;
-   }
+  getData = (d: CT_data) => {
+    this.data = (d);
+    this.loading = false;
+  }
 }
