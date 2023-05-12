@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
+import { Root } from './uomo.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Root } from './serpente.modulo';
 
 @Component({
-  selector: 'app-serpente',
-  templateUrl: './serpente.component.html',
-  styleUrls: ['./serpente.component.css']
+  selector: 'app-uomo',
+  templateUrl: './uomo.component.html',
+  styleUrls: ['./uomo.component.css']
 })
-export class SerpenteComponent {
+export class UomoComponent {
   data : Root | undefined;
   loading : boolean | undefined;
   o :Observable<Root> | undefined;
@@ -16,7 +16,7 @@ export class SerpenteComponent {
   makeRequest(): void {
     console.log("here");
     this.loading = true;
-    this.o = this.http.get<Root>('https://api.scryfall.com/cards/named?fuzzy=chishiro-the-shattered-blade');
+    this.o = this.http.get<Root>('https://api.scryfall.com/cards/named?fuzzy=bilbo-retired-burglar');
     this.o.subscribe(this.getData);
   }
   getData = (d : Root) =>
@@ -26,5 +26,3 @@ export class SerpenteComponent {
   }
 
 }
-
-

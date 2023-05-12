@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class GenericPokemonComponent {
   chiama!: String | null
-  data: Pokemon = {};
+  data: Pokemon | undefined;
   loading: boolean | undefined;
   obs_chiama : Observable<Tcg_data> | undefined;
   constructor(private route: ActivatedRoute, public http: HttpClient) {
@@ -24,7 +24,7 @@ export class GenericPokemonComponent {
     this.obs_chiama = this.http.get<Tcg_data>('https://api.pokemontcg.io/v2/cards/' + this.chiama);
     this.obs_chiama.subscribe(this.getData)
   }
-  getData = (d : Tcg_data) =>
+  getData = (d : Pokemon) =>
    {
      this.data = (d);
      this.loading = false;
