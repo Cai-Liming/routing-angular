@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { SerpenteComponent } from './serpente/serpente.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExeggutorComponent } from './exeggutor/exeggutor.component';
+import { PikachuComponent } from './pikachu/pikachu.component';
+import { BulbasaurComponent } from './bulbasaur/bulbasaur.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SerpenteComponent,
     ExeggutorComponent,
+    PikachuComponent,
+    BulbasaurComponent,
     
   ],
   imports: [
